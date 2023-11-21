@@ -27,4 +27,11 @@ public class UserService {
     public UserEntity findById (Integer id){
         return userRepository.findById(id);
     }
+    public Iterable<UserEntity> getUsers(){
+        return userRepository.getUsers();
+    }
+    
+    public void deleteUserById(Integer id){
+        userRepository.deleteUserById(id);
+    }
 }

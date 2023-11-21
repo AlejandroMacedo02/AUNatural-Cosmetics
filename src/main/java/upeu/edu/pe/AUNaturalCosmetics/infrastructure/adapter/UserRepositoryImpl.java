@@ -36,5 +36,15 @@ public class UserRepositoryImpl implements UserRepository{
     public UserEntity findById(Integer id) {
         return userCrudRepository.findById(id).get();
     }
+
+    @Override
+    public Iterable<UserEntity> getUsers() {
+        return userCrudRepository.findAll();
+    }
+
+    @Override
+    public void deleteUserById(Integer id) {
+        userCrudRepository.deleteById(id);
+    }
 }
 

@@ -5,80 +5,151 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" th:href="@{/home}">Naturley</a>
-
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" th:href="@{/login}">Login</a>
-          </li>
-        </ul>
-      </div>    
-    </div>
-  </nav>
-
-
-  <!-- Page Content -->
-  <div class="container">
-
-    <div class="card mb-3">
-      <div class="row no-gutters">
-        <div class="col-md-4">
+        <a class="navbar-brand" th:href="@{/home}">AU Natural Cosmetics</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Login</a>
+                </li>
+            </ul>
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h2>Ingresar</h2>
-
-          </div>
-        </div>
-      </div>
     </div>
+</nav>
 
-    
-    <form  th:action="@{/login}" method="post">
-      <div class="form-group">
-        <label for="username"> Email:  </label>
-        <input type="email" class="form-control" id="username" name="username" placeholder="Ingrese su email" required autocomplete="off">
+<!-- Page Content -->
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Ingresar
+        </div>
+        <div class="logo-container">
+        <img class="logo" src="/images/logo.png" alt="Logo de la empresa">
+    </div>
+        
+        <div class="card-body">
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label for="username">Email:</label>
+                    <input type="email" class="form-control" id="username" name="username"
+                           placeholder="Ingrese su email" required autocomplete="off">
+                </div>
 
-      </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" class="form-control" id="password" name="password"
+                           placeholder="Ingrese su contraseña" required>
+                </div>
 
-      <div class="form-group">
-        <label for="password"> Contraseña:</label>
-        <input type="password"  class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" required>       
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-2">
-          <button type="submit" class="btn btn-dark"> <span class="glyphicon glyphicon-ok"></span> Ingresar</button>
-        </div>      
-      </div>    
-    </form>
-    <a th:href="@{/register}" class="card-link">Si aún no tiene cuenta aqui puede registrarse</a>
-  </div>
-  <!-- /.container -->
+                <button type="submit" class="btn btn-dark mb-2">Ingresar</button>
+            </form>
+            <a th:href="@{/register}" class="card-link text-center">Registrate aqui!</a>
+        </div>
+    </div>
+</div>
 
   <!-- Footer -->
- <div th:fragment="footer">
-        <footer class=" footer py-5 bg-success">
-            <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; Jast 2023</p>
-            </div>
+ <div class="footer">
+    <footer class="py-2">
+        <div class="container">
+            <p class="m-0">Copyright &copy; AU Natural Cosmetics 2023</p>
 
         </footer>
         <style>
-            .footer {
-                position:absolute;
-                bottom: 0px;
-                height: 60px;
-                width: 100%;
-            }
-        </style> 
+        body {
+            padding-top: 56px;
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 60px;
+        }
+
+        .navbar {
+            background-color: #D3098B!important;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        .card {
+            margin-top: 50px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #D3098B;
+            color: #fff;
+            text-align: center;
+            font-size: 2.5em;
+            padding: 30px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .btn-dark {
+            background-color: #D3098B;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .card-link {
+            color: #D3098B;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            max-width: 250px;
+            height: 250px;
+        }
+    </style>
 
     </div>
 </body>

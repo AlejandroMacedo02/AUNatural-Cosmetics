@@ -1,48 +1,112 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:insert ="~{user/template_user::head}"></head>
-    <body>
-        <div th:insert ="~{user/template_user::header}" th:if="${id==null}"></div>
-        <div th:insert ="~{user/template_user::userlogger}" th:unless="${id==null}"></div>
-        <div class="container">
-            <header class="jumbotron my-4">
-                <h1 class="display-3">Bienvenido a tu tienda en linea!!! </h1> 
-            </header>
 
-            <div class="row text-center">
-                <div class="col-lg-3 col-md-6 mb-4" th:each="product: ${products}">
-                    <div class="card h-100">
-                        <img class="card-img-top" th:src="@{images/{img} (img = ${product.image})}" alt="alt"/>
-                        <div class="card-body">
-                            <p class="card-text"th:text="${product.name}"> Nombre del producto</p>  
-                        </div>
-                        <div class="card-footer">
-                            <a class="btn btn-success" th:href="@{/home/product-detail/{id} (id=${product.id})}">Ver Producto</a>     
+<head th:insert="~{user/template_user::head}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyVqBD4tr5A9tj1z04lR5ENYemN1TjN" crossorigin="anonymous">
 
-                        </div>
-                    </div> 
+    
+</head>
+
+<body>
+    <div th:insert="~{user/template_user::header}" th:if="${id==null}"></div>
+    <div th:insert="~{user/template_user::userlogger}" th:unless="${id==null}"></div>
+
+    <div class="container">
+        <header class="jumbotron my-4 text-center">
+            <h1 class="display-3">AU Natural Cosmetics</h1>
+            <p class="lead">Descubre la belleza natural con nuestros productos orgánicos</p>
+        </header>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 mb-4" th:each="product: ${products}">
+                <div class="card h-100 shadow">
+                    <img class="card-img-top img-fluid" th:src="@{'images/' + ${product.image}}" alt="Product Image">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-0" th:text="${product.name}"></h5>
+                        <h4 class="card-text small mb-2"th:text="${product.description}"></h4>
+                        <h5 class="card-text font-weight-bold text-dark" th:text="${product.price}"></h5>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 text-center">
+                        <a class="btn btn-dark btn-sm" th:href="@{'/home/product-detail/' + ${product.id}}">Ver Producto</a>
+                    </div>
                 </div>
             </div>
-
-
         </div>
+    </div>
 
-    </body>
-    <div class="footer" th:insert ="~{user/template_user::footer}"></div>
-</html>
+    <div class="footer text-white text-center">
+        <p class="mb-0">© 2023 AU Natural Cosmetics. Todos los derechos reservados.</p>
+    </div>
+
+    <!-- Bootstrap JS y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"
+            integrity="sha384-VoJHoA/CU9js7FXbA8e8tWqZQac7aFtAc76qTHtRfDzvfiUv3aQ7q1RqapTq8Fjc" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyVqBD4tr5A9tj1z04lR5ENYemN1TjN" crossorigin="anonymous"></script>
+</body>
 <style>
-    .body{
-        position: relative;
-    }
-    .footer{
-        position: absolute;
-        bottom:0px;
-        height: 60px;
-        width: 100%;
-    }
+        body {
+            background-color: #E90C90;
+            background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8));
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Ajusta la altura al 100% de la ventana */
+            margin: 0; /* Elimina el margen predeterminado del body */
+        }
 
-</style>
+        .jumbotron {
+            background-color: #343a40;
+            color: #ffffff;
+            border-radius: 15px;
+            margin-bottom: 0; /* Ajusta el margen inferior de la jumbotron */
+        }
+
+
+        .lead {
+            font-size: 1.25rem;
+        }
+
+        .card {
+            transition: transform 0.3s;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #343a40;
+        }
+
+        .card-text {
+            color: #6c757d;
+        }
+
+        .card-footer {
+            background-color: #fff;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 1rem 0;
+        }
+    </style>
+</html>

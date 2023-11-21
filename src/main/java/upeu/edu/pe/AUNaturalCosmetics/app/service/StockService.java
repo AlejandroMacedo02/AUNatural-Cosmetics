@@ -26,4 +26,7 @@ public class StockService {
      return stockRepository.getStockByProductEntity(productEntity);
    }
    
+   public Iterable<StockEntity> getStocks(){
+       return stockRepository.getStocks();
+   }
 }

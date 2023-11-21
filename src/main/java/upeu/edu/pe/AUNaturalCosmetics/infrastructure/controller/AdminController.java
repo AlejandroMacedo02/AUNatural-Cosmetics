@@ -18,10 +18,13 @@ import upeu.edu.pe.AUNaturalCosmetics.app.service.ProductService;
 @RequestMapping("/admin")
 public class AdminController {
     private final ProductService productService;
+    
 
     public AdminController(ProductService productService) {
         this.productService = productService;
+        
     }
+
      @GetMapping
     public String home(Model model){
         model.addAttribute("products", productService.getProducts());
@@ -29,5 +32,5 @@ public class AdminController {
         
         
     }
-    
+   
 }

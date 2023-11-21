@@ -5,31 +5,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:fragment ="head">
-        <title>Ecommerce</title>
+        <title>AU Natural Cosmetics</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+        <!-- Agrega esto en el head de tu HTML -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-nvGqzMQrFJ2KZjX9aOHTXOh5NOi6LZ//N7ZyY3ZG8tZjkI3bAYa6IjmM+O3Dd8E7" crossorigin="anonymous">
+
     </head>
     <body>
         <div th:fragment ="header">
-            <nav class="navbar navbar-expand-lg bg-success ">
+            <nav class="navbar navbar-expand-lg bg-dark ">
             <div class="container-fluid">
-                <a class="navbar-brand" th:href="@{/home}">Home</a>
+                 <a class="navbar-brand text-dark">Home</a>
+                <a class="navbar-brand">
+                        <img src="/images/logo.png" alt="Logo" height="200">
+                    </a>
+                 <a class="navbar-brand text-dark" >Home</a>
+                  <a class="navbar-brand text-white"th:href="@{/home}"> Home</a>
+                <a class="navbar-brand text-dark" >Home</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <a class="navbar-brand text-dark"> Bienvenidooooooooooooooooooooooozzzzzrrzzzzo</a>
+                <a class="navbar-brand">
+                        <img src="/images/login.png" alt="Logo" height="65">
+                    </a>
+                <a class="navbar-brand text-white" th:href="@{/login}"> Login</a>
+                 <a class="navbar-brand text-dark"> Bienvn</a>
+                <a class="navbar-brand">
+                        <img src="/images/anadir-al-carrito.png" alt="Logo" height="50">
+                    </a>
+                 <a class="navbar-brand text-white"th:href="@{/user/cart/get-cart}"> Añadir al carrito</a>
+                <a class="navbar-brand text-dark"> Home</a>
+                
+                <a class="navbar-brand text-dark"> zzzzzz</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav" style="width: fit-content; margin-left: auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                OPCIONES
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" th:href="@{/user/cart/get-cart}">Carrito</a></li>
-                                <li><a class="dropdown-item" th:href="@{/login}">Login</a></li>
-                            </ul>
-                        </li>
-                    </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-light" type="submit">Search</button>
@@ -39,25 +50,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         </nav>
         </div>
         <div th:fragment ="userlogger">
-            <nav class="navbar navbar-expand-lg bg-success ">
+           <nav class="navbar navbar-expand-lg bg-dark ">
             <div class="container-fluid">
-                <a class="navbar-brand" th:href="@{/home}">Home</a>
+                 <a class="navbar-brand text-dark">Home</a>
+                <a class="navbar-brand">
+                        <img src="/images/logo.png" alt="Logo" height="200">
+                    </a>
+                 <a class="navbar-brand text-dark" >Home</a>
+                  <a class="navbar-brand text-white"th:href="@{/home}"> Home</a>
+                <a class="navbar-brand text-dark" >Home</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav" style="width: fit-content; margin-left: auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="${nombre}">
+                <a class="navbar-brand text-dark"> Bienvenido</a>
+                <a class="navbar-brand">
+                        <img src="/images/usuari.png" alt="Logo" height="50">
+                    </a>
+                
+                <a class="nav-link  text-white "aria-expanded="false" th:text="${nombre}">
                                 
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" th:href="@{/user/cart/get-cart}">Carrito</a></li>
-                                <li><a class="dropdown-item" href="#">Mis productos</a></li>
-                                <li><a class="dropdown-item" th:href="@{/logout}">salir</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                 <a class="navbar-brand text-dark"> Bienvenido</a>
+                <a class="navbar-brand">
+                        <img src="/images/anadir-al-carrito.png" alt="Logo" height="50">
+                    </a>
+                 <a class="navbar-brand text-white"th:href="@{/user/cart/get-cart}"> Ver Carrito</a>
+                <a class="navbar-brand text-dark"> Home</a>
+                <a class="navbar-brand">
+                        <img src="/images/cerrar-sesion.png" alt="Logo" height="50">
+                    </a>
+                <a class="navbar-brand text-white"th:href="@{/logout}">Cerrar Sesion</a>
+                <a class="navbar-brand text-dark"> zzzzzzzzzzzzzzzzzzzzz</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-light" type="submit">Search</button>
@@ -68,9 +92,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         </div>
     </body>
     <div th:fragment ="footer">
-        <footer class="footer py-5 bg-success">
+        <footer class="footer py-3 bg-dark">
             <div class="container">
-                <p class="m-0 text-center text-white"> Curso LP Copyright &copy; Jast 2023</p> 
+                <p class="m-0 text-center text-white"> Copyright &copy; AU Natural Cosmetics 2023</p> 
                 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
             </div>
         </footer>

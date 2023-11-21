@@ -38,7 +38,7 @@ function eliminar(id) {
 		.then((OK) => {
 		  if (OK) {
 			  $.ajax({
-				 url:"/admin/delete/"+id,
+				 url:"/users/delete/"+id,
 				 success: function(res) {
 					console.log(res);
 				},			
@@ -47,7 +47,7 @@ function eliminar(id) {
 		      icon: "success",
 		    }).then((ok)=>{
 		    	if(ok){
-		    		location.href="/admin/usuarios";
+		    		location.href="/users";
 		    	}
 		    });
 		  } 

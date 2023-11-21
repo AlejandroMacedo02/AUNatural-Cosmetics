@@ -5,13 +5,13 @@
      <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 
     <body>
-        <div th:insert = "~{admin/template_admin::header_admin}"></div>
+        <div th:insert = "~{admin/template_admin::header_admin}"></div> <br>
 
         <!-- Page Content -->
         <div class="container">
 
-            <a class="btn btn-primary" th:href="@{/admin/products/stock/create-unit-product/{id}  (id = ${idproduct}) }" > Añadir unidades</a>
-            <h2>Inventario</h2>
+            <a class="btn btn-dark" th:href="@{/admin/products/stock/create-unit-product/{id}  (id = ${idproduct}) }" > Añadir unidades</a>
+            <strong><h2 class="text-center">Inventario</h2>
             <table class="table">
                 <thead>
                 <th scope="col">Entrada/Unidades</th>
@@ -37,5 +37,16 @@
         <div th:insert="~{admin/template_admin::footer_admin}"></div>
 
     </body>
+    <style>
+            .body{
+            position: relative;
+        }
+        .footer{
+            position: absolute;
+            bottom:0px;
+            height: 60px;
+            width: 100%;
+        }
+        </style>
 
 </html>

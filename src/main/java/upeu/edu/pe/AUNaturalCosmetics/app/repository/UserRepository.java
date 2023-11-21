@@ -11,7 +11,10 @@ import upeu.edu.pe.AUNaturalCosmetics.infrastructure.entity.UserEntity;
  * @author alejandromacedop
  */
 public interface UserRepository {
-     public UserEntity createUser(UserEntity user);
+
+    Iterable<UserEntity> getUsers();
+    public UserEntity createUser(UserEntity user);
     public UserEntity findByEmail(String email);
     public UserEntity findById(Integer id);
+    void deleteUserById(Integer id); 
 }

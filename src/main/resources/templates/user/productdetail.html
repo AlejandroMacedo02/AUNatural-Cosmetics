@@ -1,63 +1,142 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:insert = "~{user/template_user::head}"></head>
+<head th:insert="~{user/template_user::head}">
+   
+     <link th:href="@{/css/productdetail.css}" rel="stylesheet">
+</head>
 
 <body>
 
-  <!-- Navigation -->
-  <div th:insert ="~{user/template_user::header}" th:if="${id==null}"></div>
-  <div th:insert ="~{user/template_user::userlogger}" th:unless="${id==null}"></div>
+    <!-- Navigation -->
+    <div th:insert="~{user/template_user::header}" th:if="${id==null}"></div>
+    <div th:insert="~{user/template_user::userlogger}" th:unless="${id==null}"></div>
 
     <!-- Page Content -->
     <div class="container">
 
+        <!-- Blog Post -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <a href="#">
+                            <img class="img-fluid rounded card-img-fluid"
+                                th:src="@{/images/{img} (img = ${product.image})}" alt="Product Image">
+                        </a>
+                    </div>
+                    <div class="col-lg-6 product-details">
+                        <form th:action="@{/user/cart/add-product}" method="POST">
+                            <input type="hidden" th:value="${product.id}" name="idProduct">
+                            <input type="hidden" th:value="${product.name}" name="nameProduct">
+                            <input type="hidden" th:value="${product.price}" name="price">
 
-      <!-- Blog Post -->
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-6">
-              <a href="#"> <img class="img-fluid rounded"
-                th:src="@{/images/{img}  (img = ${product.image})} "  alt="">
-              </a>
+                            <h2 class="card-title" th:text="${product.name}"></h2>
+
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <h5 th:text="'Precio: S/.' + ${product.price}"></h5>
+                                </li>
+                                <li class="list-group-item">
+                                    <h5 th:text="'Stock: ' + ${stock} + ' unidades'"></h5>
+                                </li>
+                                <li class="list-group-item">
+                                    <p th:text="'Descripción: ' + ${product.description}"></p>
+                                </li>
+                                <li class="list-group-item">
+                                    <h6>Cantidad: <input type="number" id="quantity" name="quantity" autocomplete="off"
+                                            min="1" max="5" value="1"></h6>
+                                </li>
+                            </ul>
+
+                            <button type="submit" class="btn btn-dark">Añadir al carrito </button>
+
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6">
-              <form th:action="@{/user/cart/add-product}" method="POST">
-			  <input type="hidden" th:value="${product.id}" name="idProduct">
-			  <input type="hidden" th:value="${product.name}" name="nameProduct">
-                <input type="hidden" th:value="${product.price}" name="price">
-
-                <h2 class="card-title" th:text="${product.name}"></h2>
-
-                <ul class="list-group">
-                  <li class="list-group-item"><h5 th:text=" 'Precio : S/.'+ ${product.price}"></h5></li>
-                  <li class="list-group-item"><h5 th:text=" 'Stock : '+ ${stock}+ ' unidades'"></h5></li>
-                  <li class="list-group-item">
-                    <p th:text="'Descripción: '+ ${product.description}"></p>
-                  </li>
-                  <li class="list-group-item"><h6>
-                    Cantidad: <input type="number" id="quantity" name="quantity" autocomplete="off"
-                    min="1" max="5" value="1">
-                  </h6></li>
-                </ul>
-
-
-                <button type="submit"  class="btn btn-dark">Añadir al carrito </button>
-
-              </form>
-            </div>
-          </div>
         </div>
-      </div>
-
 
     </div>
     <!-- /.container -->
 
     <!-- Footer -->
-  <div th:insert="~{user/template_user::footer}"></div>
+    <div th:insert="~{user/template_user::footer}" class="footer">
+        <p class="text-center mb-0">© 2023 AU Natural Cosmetics. Todos los derechos reservados.</p>
+    </div>
 
-  </body>
+</body>
+<style>
+            .body {
+            position: relative;
+            margin-bottom: 60px;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
 
-  </html>
+        .footer {
+            position: absolute;
+            bottom: 0;
+            height: 60px;
+            width: 100%;
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+        }
+
+        .card-img-fluid {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .card-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Alinea verticalmente el contenido */
+        }
+
+        .product-details {
+            max-width: 400px;
+        }
+
+        .product-details h2 {
+            margin-top: 0;
+            color: #343a40;
+            font-size: 2rem;
+        }
+
+        .list-group-item {
+            border: none;
+            padding: 8px 0;
+        }
+
+        input#quantity {
+            width: 60px;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button.btn-dark {
+            margin-top: 15px;
+            background-color: #343a40;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 24px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.2rem;
+        }
+
+        button.btn-dark:hover {
+            background-color: #1d2124;
+        }
+
+
+</style>
+
+</html>

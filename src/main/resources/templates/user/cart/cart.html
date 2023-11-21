@@ -1,60 +1,109 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-    <head th:insert = "~{user/template_user::head}"></head>
+<head th:insert="~{user/template_user::head}">
+    
+</head>
 
-    <body>
+<body class="bg-light">
+    <header th:insert="~{user/template_user::header}" th:if="${id==null}"></header>
+    <header th:insert="~{user/template_user::userlogger}" th:unless="${id==null}"></header><br>
 
-        <!-- Navigation -->
-        <div th:insert ="~{user/template_user::header}" th:if="${id==null}"></div>
-        <div th:insert ="~{user/template_user::userlogger}" th:unless="${id==null}"></div>
-        <!-- Page Content -->
-        <div class="container">
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                
+                                <tr>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="item:${cart}">
+                                    <td th:text="${item.nameProduct}"></td>
+                                    <td th:text="${item.price}"></td>
+                                    <td th:text="${item.quantity}"></td>
+                                    <td th:text="${item.getTotalPriceItem()}"></td>
+                                    <td><a th:href="@{/user/cart/delete-item-cart/{id} (id = ${item.idProduct})}" class="btn btn-danger">Quitar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-            <!-- Blog Post -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Producto</th>
-                                        <th scope="col">Precio</th>
-                                        <th scope="col">Cantidad</th>
-                                        <th scope="col">Total</th>
-                                        <th scope="col">Acción</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr th:each="item:${cart}">
-                                        <td th:text="${item.nameProduct}">Nombre</td>
-                                        <td th:text="${item.price}">Precio</td>
-                                        <td th:text="${item.quantity}">Cantidad</td>
-                                        <td th:text="${item.getTotalPriceItem()}">Total</td>
-                                        <td><a th:href="@{/user/cart/delete-item-cart/{id} (id = ${item.idProduct})}" class="btn btn-danger">Quitar</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <h2 class="card-title">SUBTOTAL</h2>
-
-                            <ul class="list-group">
-                                <li class="list-group-item"><h5 th:text="${total}"></h5></li>
-                                <a th:href="@{/user/order/sumary-order}" class="btn btn-dark">Ver Orden</a>
-                            </ul>
+                    <div class="col-lg-3">
+                        <div class="card subtotal-card">
+                            <div class="card-body text-center">
+                                <h2 class="card-title mb-4">SUBTOTAL</h2>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><h5 th:text="${total}" class="total-badge"></h5></li>
+                                </ul>
+                                <br>
+                                <a th:href="@{/user/order/sumary-order}" class="btn btn-dark btn-block">Ver Orden</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /.container -->
+    </div>
 
-        <!-- Footer -->
-        <div th:insert="~{user/template_user::footer}"></div>
+    <footer th:insert="~{user/template_user::footer}" class="footer"></footer>
+</body>
 
-    </body>
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<style>
+    .body {
+        position: relative;
+        margin-bottom: 60px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0px;
+        height: 60px;
+        width: 100%;
+        background-color: #343a40;
+        color: #ffffff;
+        padding: 20px 0;
+    }
+
+    .total-badge {
+        font-size: 24px;
+    }
+
+    .btn-danger,
+    .btn-dark {
+        margin-top: 10px;
+    }
+
+    .table {
+        margin-bottom: 1rem;
+    }
+
+    .card {
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .subtotal-card {
+        background-color: #D3098B;
+        color: #ffffff;
+    }
+</style>
 
 </html>

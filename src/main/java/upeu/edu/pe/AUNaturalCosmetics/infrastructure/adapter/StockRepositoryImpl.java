@@ -31,5 +31,11 @@ private final StockCrudRepository stockCrudRepository;
     public List<StockEntity> getStockByProductEntity(ProductEntity productEntity) {
     return stockCrudRepository.getStockByProductEntity(productEntity);
     }
+
+    @Override
+    public Iterable<StockEntity> getStocks() {
+        return stockCrudRepository.findAll();
+    }
+    
     
 }

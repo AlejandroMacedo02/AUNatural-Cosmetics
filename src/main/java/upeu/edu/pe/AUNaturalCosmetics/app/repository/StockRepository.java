@@ -13,6 +13,7 @@ import upeu.edu.pe.AUNaturalCosmetics.infrastructure.entity.StockEntity;
  * @author alejandromacedop
  */
 public interface StockRepository {
+    Iterable<StockEntity> getStocks();
     StockEntity saveStock(StockEntity stockEntity);
     List<StockEntity> getStockByProductEntity(ProductEntity productEntity);  
 }
