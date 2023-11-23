@@ -26,6 +26,7 @@ public class StockEntity {
     private Integer entradas;
     private Integer salidas;
     private Integer balance;
+    
     @ManyToOne
     @JoinColumn(name = "product_id")
     private ProductEntity productEntity;

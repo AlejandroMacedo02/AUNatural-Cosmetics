@@ -16,7 +16,6 @@ import upeu.edu.pe.AUNaturalCosmetics.app.repository.ProductRepository;
 import upeu.edu.pe.AUNaturalCosmetics.app.repository.StockRepository;
 import upeu.edu.pe.AUNaturalCosmetics.app.repository.UserRepository;
 import upeu.edu.pe.AUNaturalCosmetics.app.service.CartService;
-import upeu.edu.pe.AUNaturalCosmetics.app.service.EmailService;
 import upeu.edu.pe.AUNaturalCosmetics.app.service.LoginService;
 import upeu.edu.pe.AUNaturalCosmetics.app.service.LogoutService;
 import upeu.edu.pe.AUNaturalCosmetics.app.service.OrderProductService;
@@ -84,6 +83,5 @@ public class BeanConfiguration {
     public RegistrationService registrationService(UserService userService, PasswordEncoder passwordEncoder){
         return  new RegistrationService(userService, passwordEncoder);
     }
-    
     
 }

@@ -14,7 +14,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-9">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table table-dark table-striped ">
                             <thead class="thead-dark">
                                 
                                 <tr>
@@ -45,7 +45,7 @@
                                     <li class="list-group-item"><h5 th:text="${total}" class="total-badge"></h5></li>
                                 </ul>
                                 <br>
-                                <a th:href="@{/user/order/sumary-order}" class="btn btn-dark btn-block">Ver Orden</a>
+                                <a th:href="@{/user/order/sumary-order}" class="btn btn-success btn-block"><i class="fas fa-check-circle mr-2"></i>Ver Orden</a>
                             </div>
                         </div>
                     </div>
@@ -54,13 +54,24 @@
         </div>
     </div>
 
-    <footer th:insert="~{user/template_user::footer}" class="footer"></footer>
+    <div class="footer text-white text-center">
+        <p class="mb-0">© 2023 AU Natural Cosmetics. Todos los derechos reservados.</p>
+    </div>
 </body>
 
 <!-- Font Awesome (for icons) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 <style>
+    .btn-success {
+        background-color: #D3098B;
+        border-color: #D3098B   ;
+    }
+
+    .btn-success:hover {
+        background-color: #AF0974;
+        border-color: #AF0974;
+    }
     .body {
         position: relative;
         margin-bottom: 60px;
@@ -68,14 +79,13 @@
     }
 
     .footer {
-        position: absolute;
-        bottom: 0px;
-        height: 60px;
-        width: 100%;
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 20px 0;
-    }
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 1rem 0;
+        }
 
     .total-badge {
         font-size: 24px;
@@ -101,7 +111,7 @@
     }
 
     .subtotal-card {
-        background-color: #D3098B;
+        background-color: #343a40;
         color: #ffffff;
     }
 </style>

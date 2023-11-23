@@ -26,7 +26,7 @@ function eliminarproducto(id) {
 		});
 }
 
-function eliminar(id) {
+function eliminaruser(id) {
 	console.log(id);
 	swal({
 		  title: "Esta seguro de Eliminar al usuario?",

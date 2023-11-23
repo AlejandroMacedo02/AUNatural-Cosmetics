@@ -34,6 +34,6 @@ public class UserController {
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Integer id){
         userService.deleteUserById(id);
-        return "redirect:/";
+        return "redirect:/users";
     }
 }
